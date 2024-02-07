@@ -7,6 +7,15 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
+#include "Player.h"
+#include "Skydome.h"
+#include "Ground.h"
+#include "FollowCamera.h"
+#include "Enemy.h"
+
+
+#include <memory>
+
 
 /// <summary>
 /// ゲームシーン
@@ -47,4 +56,24 @@ private: // メンバ変数
 	/// <summary>
 	/// ゲームシーン用
 	/// </summary>
+
+	// 3Dモデル
+	std::unique_ptr<Model> modelSkydome_;
+	std::unique_ptr<Model> modelGround_;
+	std::unique_ptr<Model> modelEnemy_;
+
+	std::unique_ptr<Model> modelFighterBody_;
+	std::unique_ptr<Model> modelFighterHead_;
+	std::unique_ptr<Model> modelFighterL_arm_;
+	std::unique_ptr<Model> modelFighterR_arm_;
+
+	// ビュープロジェクション
+	ViewProjection viewProjection_;
+
+	// 各クラス
+	std::unique_ptr<Player> player_;
+	std::unique_ptr<Skydome> skydome_;
+	std::unique_ptr<Ground> ground_;
+	std::unique_ptr<FollowCamera> followCamera_;
+	std::unique_ptr<Enemy> enemy_;
 };
